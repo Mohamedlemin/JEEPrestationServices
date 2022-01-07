@@ -271,6 +271,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Description</th>
+                                                
                                                 <th scope="col">Budget Total</th>
                                                 <th scope="col">Budget Projet</th>
                                                 <th scope="col">delais</th>
@@ -289,7 +290,7 @@
                                                
                                                 <td>
                                                     <a href="#" class="badge_active"><i class="far fa-eye"></i>  Details</a>
-                                                    <a href="#" class="badge_active2"><i class="far fa-edit"></i>  Modifier</a>
+                                                    <a href="modifierProjet.php?id=${p.id}" class="badge_active2"><i class="far fa-edit"></i>  Modifier</a>
                                                     <a  onclick="return confirm('etes vous sure de sepprimer?')"  href="supprimerProjet.php?id=${p.id}"  class="badge_active3"> <i class="fas fa-trash"></i> Supprimer</a>
                                                
                                             </td>

@@ -29,6 +29,17 @@ public class projet {
 		this.chefprojet = chefprojet;
 	}
 
+	
+	
+
+	public projet(String delais, double budgetTotal, double budget, Long chefprojet) {
+		super();
+		this.delais = delais;
+		this.budgetTotal = budgetTotal;
+		this.budget = budget;
+		this.chefprojet = chefprojet;
+	}
+
 
 	public String getDescription() {
 		return description;

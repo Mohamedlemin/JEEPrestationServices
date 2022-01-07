@@ -88,11 +88,49 @@ public class maServlet extends HttpServlet {
 			 ChefService chef=(ChefService)session.getAttribute("usersession");
 			 Long id=chef.getId();
 			 List<projet> projets=dao2.listProjet(id);
+			 
 			 req.setAttribute("projets", projets);
 			 req.setAttribute("chef", chef);
 			 req.getRequestDispatcher("ChefService/projet.jsp").forward(req, resp);
 			 
 			 
+			 
+			 
+		 }
+		 else if(path.equals("/modifierProjet.php")) {
+			 Long id=Long.parseLong(req.getParameter("id"));
+		
+			 projet c=dao2.getProjet(id);
+			 req.setAttribute("projet", c);
+			  HttpSession session = req.getSession();
+			  ChefService chef=(ChefService)session.getAttribute("usersession");
+			  Long idd=chef.getId();
+			  req.setAttribute("chef", chef);
+			  
+				 List<chefprojet> chefprojets=dao1.listChefProjet(idd);
+				 req.setAttribute("chefprojets", chefprojets);
+				 
+				  chefprojet ch=dao1.getChef(c.getChefprojet());
+				req.setAttribute("chefprojet", ch);
+			 req.getRequestDispatcher("ChefService/modifierProjet.jsp").forward(req, resp);
+			 
+			
+			 
+		 }
+		 
+		 
+		 else if(path.equals("/updateProjet.php")) {
+			
+				String delais=req.getParameter("delais");
+				Double budgetTotal=Double.parseDouble(req.getParameter("budgetTotal"));
+				Double budget=Double.parseDouble(req.getParameter("budget"));
+				
+		          Long chefs=Long.parseLong(req.getParameter("chef"));
+				projet p=new projet(delais,budgetTotal,budget,chefs);
+			 Long id=Long.parseLong(req.getParameter("id"));
+			  p.setId(id);
+			 dao2.updateProjet(p);
+			 resp.sendRedirect("/ChefService/projet.php");
 			 
 			 
 		 }

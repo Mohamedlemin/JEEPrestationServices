@@ -258,9 +258,17 @@
                                 
                                  <div class="col-lg-6">
                                      <label >Chef Projet</label>
-                                    <select class="nice_Select2 nice_Select_line wide" style="display: none;" name="chef">
+                                    <select class="nice_Select2 nice_Select_line wide" style="display: none;" name="chef"">
                                      <c:forEach items="${chefprojets}" var="p">
+                                        
+                                           <c:if test="${chefprojet.id== p.id}">
+                                             <option value="${p.id}" selected>${p.nom} ${p.prenom}</option>
+                                           
+                                              </c:if> 
+                                         <c:if test="${chefprojet.id != p.id}">  
                                         <option value="${p.id}">${p.nom} ${p.prenom}</option>
+                                        
+                                          </c:if> 
                                            </c:forEach>
                                     </select>
                                 </div>
